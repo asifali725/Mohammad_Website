@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 25px;
+}
+
+.logo img {
+  height: 140px;
+  width: auto;
+}
+
+/* Fixed round blinking button */
+.info-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  background-color: #5c4033; /* Dark brown inner circle */
+  border: 6px solid black; /* Thicker black outer ring */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px black;
+  animation: blinkBorder 1s infinite; /* Blinking border */
+}
+
+/* Blinking border animation */
+@keyframes blinkBorder {
+  0% {
+    box-shadow: 0px 0px 10px black;
+  }
+  50% {
+    box-shadow: 0px 0px 25px black;
+  }
+  100% {
+    box-shadow: 0px 0px 10px black;
+  }
+}
+
+.info-button:hover {
+  background-color: #4b3328;
+}
+
+/* Popup styling */
+.popup {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transition: bottom 0.4s ease-in-out;
+  z-index: 999;
+}
+
+/* Show popup */
+.popup.show {
+  bottom: 0;
+}
+
+/* Close button */
+.close-popup {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 70px;
+    padding: 0 20px;
+  }
+  .logo img {
+    height: 50px;
+  }
+  .info-button {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+    border: 5px solid black;
+  }
+}

@@ -1,13 +1,17 @@
-// Auto download document when page loads
-window.onload = function () {
+// download document when When button is pressed
+document.getElementById("downloadBtn").addEventListener("click", function () {
   const link = document.createElement("a");
-  link.href = "assets/mydoc.pdf"; // Your file name here
-  link.download = "assets/mydoc.pdf"; // The name it will save as
+  link.href = "assets/mydoc.pdf"; // Your file path
+  link.download = "mydoc.pdf"; // File name to save as
   document.body.appendChild(link);
+
+  // Some mobile browsers require this:
+  link.target = "_blank";
+
   link.click();
   document.body.removeChild(link);
   console.log("Document download started.");
-};
+});
 
 // Popup functionality
 const infoButton = document.querySelector(".info-button");
